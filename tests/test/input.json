@@ -1,0 +1,10 @@
+[
+    {
+        "hash": "91ef3ac11456e44b69835a300c1505512c7f59c0e20f27604d6f9bc93ad41fb4",
+        "n": 0,
+        "blind":"2841180cf2c735ec8859a315fbd2489695d938ea6b88ef6c1209c45587810e27",
+        "amount": "1093320000",
+        "pubkey": "02328b071a407422c3e65504c9d6f902a753bc2250b725c048daf4748981b10829",
+        "commitment": "085ccbd6930a321ba77c1b3874c005b502edd10e9791e7ae7be44d3e04d337cb59"
+    }
+]

@@ -1,0 +1,158 @@
+[
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "ebdc63e1c4b39e165bfdeb1216a546e297ec6b1b66ed68e7a805a95fb2dee6d003",
+            "amount": 54000000000,
+            "encoded_amount": "8cb52b2da0d0386db8a764414f99c72c5c32dbae647d89f322d4c849485131b7",
+            "encoded_mask": "919d20d646549ed0761bcc8b67d29130f1b1efee575a52fb7bc1fe0b045cb0b0",
+            "txpubkey": "e7756c3966cd91aca4b5d91dc51421289f39241c4402512f05ef58e09837fb1203",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "9654b24f093050a707f1e87106e2d179a2a812aea5322373e6f9a2bdff8e7692",
+        "blockindex": 165139
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "dada576effed29533449546a690e70bc681fff158fe99a99c54d6d62c3145b7f03",
+            "amount": 63000000000,
+            "encoded_amount": "32822b7d9f4b69a9fa906737c286fa194a56e195c86b1a9276c9785add214cec",
+            "encoded_mask": "30cea486172297b91de36992c7c263cd98009993c5b96a9e955f00478109b77e",
+            "txpubkey": "58bc73f62ae1e07a2f0e6cf870b6ff970d163906b4d4472c09a4448aad3a4ba103",
+            "commitment": "087db11ad5cabb8bd4738436f5c2c47a927fc6ffd8902c6d209d71c18245bf9d08"
+        },
+        "txid": "3be5ff2efeed0c31102c237e44d266c260312332f4bab1b8e8a5474fbdf73fd2",
+        "blockindex": 375536
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "516473fa1091a6a15539e7130ad5c051b51a3bda6df77575f730a1b6f300791203",
+            "amount": 36000000000,
+            "encoded_amount": "4b4c13e75be698beaf2ab603987750a8c3b1c1ac6a6899b3368ca12ef7b545c1",
+            "encoded_mask": "584956fe9ade84b44a555d1cd578d5ab0964d93ab2f66c626abfe59dad778169",
+            "txpubkey": "7b225414cbb239a4dca5479500be96fa8a6a85f85a9931c6fd2beb9b57a327b402",
+            "commitment": "087f302ee3281457ac2cbe9c6411006769b40502850618ce3f00c07385f6377a0a"
+        },
+        "txid": "22c48f3a40bb3cec458582aa305294499a7eb0b4e9d4396cb1cb0d2a07919b26",
+        "blockindex": 63864
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "ddcef0422eccff008f3e2208771cda776fd6c1b7c99067889afaa43f3408b93e03",
+            "amount": 63000000000,
+            "encoded_amount": "e616b63e335b5572b5d9399c8beb4a32fd1d7b575b5d88ae6163248c4c2847df",
+            "encoded_mask": "e3b20c3c504cf0198e347aae93473937fe51f7886c9af94b942f58a49e47a970",
+            "txpubkey": "e2ce0a1b09e98286522e022ae68001b9f3c704e29d4a894b9e54eb8f572f550702",
+            "commitment": "087db11ad5cabb8bd4738436f5c2c47a927fc6ffd8902c6d209d71c18245bf9d08"
+        },
+        "txid": "9c769caabb903deb1b23b960d66e0ce139b321b00b97765232e104ec3776626d",
+        "blockindex": 415702
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "430d70929dc635e94dcf300f67a4ce11f5ba73cf90cbb625d5ef71bca71ccff302",
+            "amount": 36000000000,
+            "encoded_amount": "460099a408bbdb42dda699a0cf7576534a1682aec42b2f62dd5c51501d9ab9de",
+            "encoded_mask": "ae66917b0f606f56b2331dd3a87936d5c2342311b6d3bcb7472369ea516ce1ec",
+            "txpubkey": "ba0af5d44b3f874ffefeae8c372f527e7af88d1fd9156432ca021872a28b124e03",
+            "commitment": "087f302ee3281457ac2cbe9c6411006769b40502850618ce3f00c07385f6377a0a"
+        },
+        "txid": "cec64d8d9dfde9d11c6d17684931ada1f3a9daf4901923a14797254e50faa185",
+        "blockindex": 66137
+    },
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "e0b828c6055fc67be972ae94aaf662d8d8e798a25bd2cadbd533ca6b6c57e32602",
+            "amount": 54000000000,
+            "encoded_amount": "2d6ce9db5ec8ef749765eee5bc60f3f18da8e0a7a63d03aa91f4162b3da86f49",
+            "encoded_mask": "142c238552571435f3d6f9b5d9646681d1e091c3f62c0b357d51da82ccdfa41b",
+            "txpubkey": "71240a8f6b5d244ceeb1d013b892159b0a4d9b78476940916ba018373fb30eb403",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "e94685a7acb852cc554af44bca87cffe54391df84fd58f16a92ed0a73dc6c87a",
+        "blockindex": 210177
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "2a488a7de669652f008af51a3eedae74a1f39917a58b4de6409f157f5a851cf603",
+            "amount": 63000000000,
+            "encoded_amount": "c170b7f23523b9b1e77c0cfb1953d1f699cd6bb49d883f4aafd3d8ef02f299df",
+            "encoded_mask": "2aca38ef9a14dac53cdf2102266a02b616ef99f9d3619388e482e8b3e299a36d",
+            "txpubkey": "e6163d306bf84973fe6f245fffdfef69bd12781ecb786740372e3bfa047fe6c703",
+            "commitment": "087db11ad5cabb8bd4738436f5c2c47a927fc6ffd8902c6d209d71c18245bf9d08"
+        },
+        "txid": "df5c9d6f1c538b011e204ec08eab6520daadb5fb998217ba604131ad51f8f33f",
+        "blockindex": 367199
+    },
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "08c0d712f8686608177a9e5ecafb40aee796df614f58a7b8ebcd5e706336372b02",
+            "amount": 54000000000,
+            "encoded_amount": "3fefcad6480e48edbffb097e3f688f0d61cc1d315e201aba0831b343e77b06f9",
+            "encoded_mask": "1b76c3ce56b6e87fa7c086fa881be67ed2aeb9c1ec6797b3ad1a5134a4533fbe",
+            "txpubkey": "b7835a997dbbc42a1ffbc4c514bf32805b1ee1f20bd5c6db31592355574488bd02",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "f809bfc5bd7dc304160b16dbb501dff6ca9b42c71e775b56f2b09fb79448338c",
+        "blockindex": 191006
+    },
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "5dc255ff9c5418c3927f420ee47a810cdefa01658611137b5a2dca111ace23c102",
+            "amount": 54000000000,
+            "encoded_amount": "ffc4ecdc48a13ebdcb8ae1e907a798905740382950fbc65053eebf76f335a0bc",
+            "encoded_mask": "aa3e552e22220fc04d170857e4bb4e60d0e3a51ab3c29b9d8ded67cb04ccb953",
+            "txpubkey": "0bb857efcf47e1ba611f9a6f6d6eea75620f13a1d1b4fc3f9d4a3aa9f11b93c103",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "281a3b9eca7ec5b10a491ec65e6e8a0731fded0e7cdf56e34e4f9b581051c477",
+        "blockindex": 377965
+    },
+    {
+        "utxo": {
+            "n": 2,
+            "pubkey": "f6ebc5bf0b59fef8442d95e35bc0ed95324c25f73740927314193dfbfe5faea702",
+            "amount": 63150380000,
+            "encoded_amount": "e16014034efbda5d10c76163b6bdeaeb5b5eb84a5d92de085b50abb980503a7e",
+            "encoded_mask": "c668c5c9631f05e5d042f915e4071bfbde5beffd2d01ff50dfbc1e09166d96f0",
+            "txpubkey": "63c6b578cadf65c7f1f83a8f5a66281aa93242597ed7f988ce448894869e8c1102",
+            "commitment": "088de107722fda296933f334953994d62ff8deddbdaf73dde808989b476c751d65"
+        },
+        "txid": "07f65964324a06485b0f9c4e36bcf94a92556f69f033e130b3dacb750b67bc16",
+        "blockindex": 323541
+    },
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "7fafa7839dea11d7e3e68a020168d0acd5de45dfa82e2e49268eb06edafe9a1b03",
+            "amount": 54000000000,
+            "encoded_amount": "bdc39a55d1c966ffbb1433385425b6649a6e7faaf35cb6b459b68fa1b1126b79",
+            "encoded_mask": "76d55eca36e296b876a66f8530253c6cea083a01fe20d2242ba6624c59775a72",
+            "txpubkey": "6845031c516cfbf54a8291329485c0f9d7a026d6dfa927fa8f486ca3c10a72fe02",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "9fa0fdba282dedb2d5f3d814d04cf71f8c19f4a421336dedf40bb60e4e80f1ad",
+        "blockindex": 264038
+    },
+    {
+        "utxo": {
+            "n": 3,
+            "pubkey": "0b2ca11ab953168e00b0dd78ff2ab6b15e09362d46f669d34b282324fd5a3baa02",
+            "amount": 54000000000,
+            "encoded_amount": "f41471e731b59b787ea76d5c32749143b2996d36ee4a090a0940bf300bd4a13d",
+            "encoded_mask": "1c2ea062be23e3456fbea52615b28b3653d009a55baaf45c51f1d58ae386f37a",
+            "txpubkey": "cf8a706bda430b52d92911f3b48bc1c8fc51c22326023e23314689399f8ea8a203",
+            "commitment": "082770a7e25353eca612e1a413d20424e98888bf82a71ad9993fc8f81c85f9a528"
+        },
+        "txid": "b0a6d8decaa424e39d66bfc8521746ab42180974124af7aec9138a0ee9d285a8",
+        "blockindex": 291716
+    }
+]

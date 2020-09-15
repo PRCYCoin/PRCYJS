@@ -1,0 +1,34 @@
+{
+  "name": "dapsjs",
+  "version": "1.0.0",
+  "description": "JavaScript library for the creation, scanning and sending of DAPS privacy coins",
+  "main": "index.js",
+  "repository": "github:DAPSCoin/DAPSJS",
+  "bugs": "https://github.com/DAPSCoin/DAPSJS/issues",
+  "scripts": {
+    "tests": "node tests/index.js"
+  },
+  "keywords": [
+    "DAPS",
+    "DAPSCoin"
+  ],
+  "author": "DAPS Coin",
+  "license": "ISC",
+  "dependencies": {
+    "bigi": "^1.4.2",
+    "binstring": "^0.2.1",
+    "bip39": "^3.0.2",
+    "bs58": "^4.0.1",
+    "bs58check": "^2.1.2",
+    "btc-script": "^0.1.12",
+    "create-hash": "^1.2.0",
+    "crypto-binary": "^0.1.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "js-sha3": "^0.8.0",
+    "request": "^2.88.2",
+    "secp256k1": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0"
+  }
+}
