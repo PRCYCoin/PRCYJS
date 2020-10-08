@@ -88,6 +88,18 @@ Wallet.prototype.getSeed = function () {
   return seed;
 }
 
+// Get the current View Path
+Wallet.prototype.getViewPath = function () {
+  console.log(viewPath);
+  return viewPath;
+}
+
+// Get the current Spend Path
+Wallet.prototype.getSpendPath = function () {
+  console.log(spendPath);
+  return spendPath;
+}
+
 // Get last payment received in DAPS
 Wallet.prototype.lastPayment = function () {
   return lastPayment / constants.BASE_FEE;
@@ -277,6 +289,8 @@ function Wallet(input, apiServer, network, masterseed) {
   this.isScanning = false;
   this.currentBlockHeight = 0;
   this.updateBlockcount();
+  this.getViewPath();
+  this.getSpendPath();
 }
 
 // Create a Raw Transaction to a destination Stealth Address for n amount
