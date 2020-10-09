@@ -109,6 +109,33 @@ Get the current StatusVal:
 wl.currentStatusValue
 ```
 
+View Path/Spend Path
+================
+Get the current View Path: 
+```
+wl.getViewPath
+```
+Get the current Spend Path:  
+```
+wl.getSpendPath
+```
+
+Set the current View Path: 
+```
+wl.setViewPath(path)
+```
+Set the current Spend Path:  
+```
+wl.setSpendPath(path)
+```
+Default View Paths:
+- dapscoin seed: "m/44'/" + coinType + "'/0'/0/0"
+- Bitcoin seed: "m/44'/" + coinType + "'/0'/0/0"
+
+Default Spend Paths:
+- dapscoin seed: "m/44'/" + coinType + "'/1'/0/0"
+- Bitcoin seed: "m/44'/" + coinType + "'/0'/0/0"
+
 Basic Test
 ================
 
