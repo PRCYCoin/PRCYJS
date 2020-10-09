@@ -90,13 +90,23 @@ Wallet.prototype.getSeed = function () {
 
 // Get the current View Path
 Wallet.prototype.getViewPath = function () {
-  console.log(viewPath);
   return viewPath;
 }
 
 // Get the current Spend Path
 Wallet.prototype.getSpendPath = function () {
-  console.log(spendPath);
+  return spendPath;
+}
+
+// Set the current View Path
+Wallet.prototype.setViewPath = function (passedViewPath) {
+  viewPath = passedViewPath;
+  return viewPath;
+}
+
+// Set the current Spend Path
+Wallet.prototype.setSpendPath = function (passedSpendPath) {
+  spendPath = passedSpendPath;
   return spendPath;
 }
 
@@ -242,8 +252,8 @@ function Wallet(input, apiServer, network, masterseed) {
   this.apiServer = apiServer ? apiServer : config.DAPS_SERVER;
 
   if (seed == "dapscoin seed") {
-    viewPath = "m/44'/" + coinType + "'/0'/0/0";
-    spendPath = "m/44'/" + coinType + "'/1'/0/0";
+    this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
+    this.setSpendPath("m/44'/" + coinType + "'/1'/0/0");
     // Generate private view and spend key
     this.extendedViewKey = generateViewExtendedKey(mnemonics, seed);
     this.extendedSpendKey = generateSpendExtendedKey(mnemonics, seed);
@@ -260,8 +270,8 @@ function Wallet(input, apiServer, network, masterseed) {
     this.spendPubKey = this.extendedSpendKey.publicKey;
     this.viewPrivKey = this.extendedViewKey.privateKey;
   } else if (seed == "Bitcoin seed") {
-    viewPath = "m/44'/" + coinType + "'/0'/0/0";
-    spendPath = "m/44'/" + coinType + "'/0'/0/0";
+    this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
+    this.setSpendPath("m/44'/" + coinType + "'/0'/0/0");
     // Generate private view and spend key
     this.extendedViewKey = generateViewExtendedKey(mnemonics, seed);
     this.extendedSpendKey = generateSpendExtendedKey(mnemonics, seed);
