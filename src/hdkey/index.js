@@ -1,6 +1,6 @@
 var assert = require('assert')
 var Buffer = require('safe-buffer').Buffer
-var crypto = require('crypto')
+var crypto = require('crypto-browserify')
 var bs58check = require('bs58check')
 var secp256k1 = require('secp256k1')
 
