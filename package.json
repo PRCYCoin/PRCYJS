@@ -1,6 +1,6 @@
 {
   "name": "dapsjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JavaScript library for the creation, scanning and sending of DAPS privacy coins",
   "main": "index.js",
   "repository": "github:DAPSCoin/DAPSJS",
