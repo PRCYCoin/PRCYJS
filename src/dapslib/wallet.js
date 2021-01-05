@@ -247,7 +247,7 @@ function Wallet(input, apiServer, network, masterseed) {
   var net = network ? network : "mainnet";
   seed = masterseed ? masterseed : "dapscoin seed";
 
-  coinType = net == "testnet" ? "1" : "358";
+  coinType = net == "testnet" ? "1" : "853";
 
   this.apiServer = apiServer ? apiServer : config.DAPS_SERVER;
 
