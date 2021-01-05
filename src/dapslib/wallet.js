@@ -202,7 +202,7 @@ function generateSpendExtendedKey(mnemonics, masterseed) {
 
 // Converts key to private spend key and private view key
 function toBTCSecret(key) {
-  var btcsecret = Buffer.concat([Buffer.from([212]), key, Buffer.from([1])]);
+  var btcsecret = Buffer.concat([Buffer.from([28]), key, Buffer.from([1])]);
   return bs58check.encode(btcsecret);
 }
 
