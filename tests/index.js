@@ -1,4 +1,4 @@
 require("./cs_tests")
 require("./test");
-require('./dapslib')
+require('./prcylib')
 require('./wallet')

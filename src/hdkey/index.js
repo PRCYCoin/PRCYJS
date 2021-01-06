@@ -4,7 +4,7 @@ var crypto = require('crypto-browserify')
 var bs58check = require('bs58check')
 var secp256k1 = require('secp256k1')
 
-var MASTER_SECRET = Buffer.from('dapscoin seed', 'utf8')
+var MASTER_SECRET = Buffer.from('prcycoin seed', 'utf8')
 var HARDENED_OFFSET = 0x80000000
 var LEN = 78
 

@@ -2,8 +2,8 @@ var privateKeys = require('./privatekeys.json');
 var outputs = require('./output.json');
 var inputs = require('./input.json');
 var decoys = require('./decoys.json');
-var TxCreator = require('../../src/dapslib/index');
-var config = require('../../src/dapslib/config');
+var TxCreator = require('../../src/prcylib/index');
+var config = require('../../src/prcylib/config');
 
 for(var i = 0; i < privateKeys.length; i++) {
     privateKeys[i] = Buffer.from(privateKeys[i], 'hex');
@@ -15,7 +15,7 @@ for(i = 0; i < outputs.length; i++) {
     outputs[i].blind = Buffer.from(outputs[i].blind, 'hex');
 }
 
-TxCreator.CreateDAPSPrivacyTransaction(config.DAPS_SERVER, inputs, outputs, decoys.decoys, privateKeys, 13, function(tx) {
+TxCreator.CreatePRCYPrivacyTransaction(config.PRCY_SERVER, inputs, outputs, decoys.decoys, privateKeys, 13, function(tx) {
     //console.log('tx raw:', Buffer.from(tx.serialize()).toString('hex'))//Buffer.from(tx.serialize()).toString('hex'))
 })
 

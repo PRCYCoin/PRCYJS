@@ -1,7 +1,7 @@
-const Wallet = require('./src/dapslib/wallet');
-const Tx = require('./src/dapslib/transaction');
-const Utils = require('./src/dapslib/utils');
-const Constants = require('./src/dapslib/config');
+const Wallet = require('./src/prcylib/wallet');
+const Tx = require('./src/prcylib/transaction');
+const Utils = require('./src/prcylib/utils');
+const Constants = require('./src/prcylib/config');
 
 module.exports = {
     Wallet,

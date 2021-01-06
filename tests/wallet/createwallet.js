@@ -1,4 +1,4 @@
-const Wallet = require("../../src/dapslib/wallet");
+const Wallet = require("../../src/prcylib/wallet");
 
 var wl = new Wallet({
   mnemonics:

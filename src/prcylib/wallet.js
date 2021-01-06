@@ -6,7 +6,7 @@ const sha3 = require("js-sha3");
 const config = require("./config");
 const utils = require("./utils");
 const request = require("request");
-const constants = require('../dapslib/constants');
+const constants = require('../prcylib/constants');
 
 const promisify = (fn) => {
   return (...args) => {
@@ -22,18 +22,18 @@ const promisify = (fn) => {
 };
 
 const requestPromise = promisify(request);
-const dapsindex = require("./index");
+const prcyindex = require("./index");
 
 var coinType = "0";
 var viewPath = "m/44'/" + coinType + "'/0'/0/0";
 var spendPath = "m/44'/" + coinType + "'/0'/0/0";
-var apiTXServer = config.DAPS_TX_SERVER;
+var apiTXServer = config.PRCY_TX_SERVER;
 var filterspents = false;
 var currentStatus = "Idle";
 var currentStatusVal = 1;
 // Current mnemonics for the current session
 var mnemonics;
-// Current seed for the current session (dapscoin or Bitcoin)
+// Current seed for the current session (prcycoin or Bitcoin)
 var seed;
 // Last payment received
 var lastPayment;
@@ -55,7 +55,7 @@ var rewardPoACount = 0;
 var lastPoAReward;
 // Total number of rewards earned
 var rewardCount = 0;
-// Total rewards earned in DAPS
+// Total rewards earned in PRCY
 var rewardTotal = 0;
 // Transaction Fee
 var txFee = 0;
@@ -83,7 +83,7 @@ Wallet.prototype.getMnemonics = function () {
   return mnemonics;
 }
 
-// Get the current seed used: dapscoin or Bitcoin
+// Get the current seed used: prcycoin or Bitcoin
 Wallet.prototype.getSeed = function () {
   return seed;
 }
@@ -110,12 +110,12 @@ Wallet.prototype.setSpendPath = function (passedSpendPath) {
   return spendPath;
 }
 
-// Get last payment received in DAPS
+// Get last payment received in PRCY
 Wallet.prototype.lastPayment = function () {
   return lastPayment / constants.BASE_FEE;
 }
 
-// Get last reward received in DAPS (includes Masternode, Mined, Minted)
+// Get last reward received in PRCY (includes Masternode, Mined, Minted)
 Wallet.prototype.lastReward = function () {
   return lastReward / constants.BASE_FEE;
 }
@@ -125,17 +125,17 @@ Wallet.prototype.lastRewardType = function () {
   return lastRewardType;
 }
 
-// Get last Masternode reward received in DAPS
+// Get last Masternode reward received in PRCY
 Wallet.prototype.lastMNReward = function () {
   return lastMNReward / constants.BASE_FEE;
 }
 
-// Get last Stake (Minted) reward received in DAPS
+// Get last Stake (Minted) reward received in PRCY
 Wallet.prototype.lastStakeReward = function () {
   return lastStakeReward / constants.BASE_FEE;
 }
 
-// Get last PoA Mined reward received in DAPS
+// Get last PoA Mined reward received in PRCY
 Wallet.prototype.lastPoAReward = function () {
   return lastPoAReward / constants.BASE_FEE;
 }
@@ -160,16 +160,16 @@ Wallet.prototype.rewardCount = function () {
   return rewardCount;
 }
 
-// Get total rewards received in DAPS (includes Masternode, Mined, Minted)
+// Get total rewards received in PRCY (includes Masternode, Mined, Minted)
 Wallet.prototype.rewardTotal = function () {
   return rewardTotal / constants.BASE_FEE;
 }
 
-// Get the Estimated Transaction Fee in DAPS - 1.26 default like QT wallet if the value has not changed from 0
+// Get the Estimated Transaction Fee in PRCY - 0.26 default like QT wallet if the value has not changed from 0
 Wallet.prototype.estimatedFee = function () {
   if (txFee == 0) {
-    // Use estimated 1.26 as we do in the QT Wallet
-    txFee = "1.26";
+    // Use estimated 0.26 as we do in the QT Wallet
+    txFee = "0.26";
   }
   return txFee;
 }
@@ -180,7 +180,7 @@ Wallet.prototype.generateMnemonic = function generateMnemonic() {
   return mnemonics;
 }
 
-// Generate Extended View Key from Mnemonics and master seed (dapscoin or Bitcoin)
+// Generate Extended View Key from Mnemonics and master seed (prcycoin or Bitcoin)
 function generateViewExtendedKey(mnemonics, masterseed) {
   var seed = bip39.mnemonicToSeedSync(mnemonics);
   var hd = hdkey.fromMasterSeed(seed);
@@ -190,7 +190,7 @@ function generateViewExtendedKey(mnemonics, masterseed) {
   return childkey;
 }
 
-// Generate Extended Spend Key from Mnemonics and master seed (dapscoin or Bitcoin)
+// Generate Extended Spend Key from Mnemonics and master seed (prcycoin or Bitcoin)
 function generateSpendExtendedKey(mnemonics, masterseed) {
   var seed = bip39.mnemonicToSeedSync(mnemonics);
   var hd = hdkey.fromMasterSeed(seed);
@@ -245,13 +245,13 @@ function Wallet(input, apiServer, network, masterseed) {
   }
 
   var net = network ? network : "mainnet";
-  seed = masterseed ? masterseed : "dapscoin seed";
+  seed = masterseed ? masterseed : "prcycoin seed";
 
   coinType = net == "testnet" ? "1" : "853";
 
-  this.apiServer = apiServer ? apiServer : config.DAPS_SERVER;
+  this.apiServer = apiServer ? apiServer : config.PRCY_SERVER;
 
-  if (seed == "dapscoin seed") {
+  if (seed == "prcycoin seed") {
     this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
     this.setSpendPath("m/44'/" + coinType + "'/1'/0/0");
     // Generate private view and spend key
@@ -287,7 +287,7 @@ function Wallet(input, apiServer, network, masterseed) {
       this.spendPubKey
     );
   } else {
-    console.log("Incorrect masterseed used - must be dapscoin seed or Bitcoin seed");
+    console.log("Incorrect masterseed used - must be prcycoin seed or Bitcoin seed");
   }
 
   this.utxoDetails = {};
@@ -329,7 +329,7 @@ Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
       }
     }
   }
-  dapsindex.CreateFullTransaction(
+  prcyindex.CreateFullTransaction(
     this.apiServer,
     allUnspentUTXOs,
     destination,
@@ -344,7 +344,7 @@ Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
 
 // Broadcast the created transaction to the network
 Wallet.prototype.broadcastTransaction = function (tx, cb) {
-  dapsindex.SendRawTransaction(
+  prcyindex.SendRawTransaction(
     apiTXServer,
     Buffer.from(tx.serialize()).toString("hex"),
     function (ret) {
@@ -706,17 +706,17 @@ Wallet.prototype.computeWalletState = async function (
     }
   }
   if (enableDebug == true) {
-    console.log("Your last received payment was: " + lastPayment / constants.BASE_FEE + " DAPS");
-    console.log("Your last received reward was: " + lastReward / constants.BASE_FEE + " DAPS");
+    console.log("Your last received payment was: " + lastPayment / constants.BASE_FEE + " PRCY");
+    console.log("Your last received reward was: " + lastReward / constants.BASE_FEE + " PRCY");
     console.log("Your last received reward type was: " + lastRewardType);
-    console.log("Your last received MN reward was: " + lastMNReward / constants.BASE_FEE + " DAPS");
-    console.log("Your last received Staking reward was: " + lastStakeReward / constants.BASE_FEE + " DAPS");
-    console.log("Your last received PoA reward was: " + lastPoAReward / constants.BASE_FEE + " DAPS");
+    console.log("Your last received MN reward was: " + lastMNReward / constants.BASE_FEE + " PRCY");
+    console.log("Your last received Staking reward was: " + lastStakeReward / constants.BASE_FEE + " PRCY");
+    console.log("Your last received PoA reward was: " + lastPoAReward / constants.BASE_FEE + " PRCY");
     console.log("You have received a total of: " + rewardMNCount + " MN rewards");
     console.log("You have received a total of: " + rewardStakeCount + " Staking rewards");
     console.log("You have received a total of: " + rewardPoACount + " PoA Mining rewards");
     console.log("You have received a total of: " + rewardCount + " rewards");
-    console.log("You have received a total of: " + rewardTotal / constants.BASE_FEE + " DAPS from rewards");
+    console.log("You have received a total of: " + rewardTotal / constants.BASE_FEE + " PRCY from rewards");
   }
   if (enableDebug == true) {
     endDate = new Date();

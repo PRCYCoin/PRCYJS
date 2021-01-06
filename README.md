@@ -1,5 +1,5 @@
-# DAPSJS
-NodeJS library for making DAPS privacy transactions
+# PRCYJS
+NodeJS library for making PRCY privacy transactions
 
 API Call List:
 |                                                   |      |            |                  |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -18,15 +18,15 @@ API Call List:
 | Marks the given utxos as spent in the API         | Post | wallet     | markspents       | viewkey:${viewkey} spendpub:${pubspenkey} spents: string in format txid-index:txid-index...                                            |                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 
-Note: You must obtain API info and Server Encryption Key from the DAPS team to be able to access the API. These are placed in the `src/dapslib/config.js`.
+Note: You must obtain API info and Server Encryption Key from the PRCY team to be able to access the API. These are placed in the `src/prcylib/config.js`.
 
 Usage
 ===============
 * Create a wallet object from mnemonics
 ```
-const Wallet = require('dapsjs').Wallet;
-const config = require('dapsjs').Constants;
-var walletObject = new Wallet({mnemonics: mnemonics.mnemonics}, config.DAPS_SERVER, config.DAPSCHAIN, "Bitcoin seed");
+const Wallet = require('prcyjs').Wallet;
+const config = require('prcyjs').Constants;
+var walletObject = new Wallet({mnemonics: mnemonics.mnemonics}, config.PRCY_SERVER, config.PRCYCHAIN, "Bitcoin seed");
 ```
 
 Once wallet object created, then it will automatically send requests to the RPC server to scan for all transactions belonging to the wallet.
@@ -90,7 +90,7 @@ EncryptedViewKey and EncryptedSpendPub
 
 Note: `r` in the request sent to server is `R` in the formulae
 
-DAPSJS Statuses / Status Values (currentStatus/currentStatusVal)
+PRCYJS Statuses / Status Values (currentStatus/currentStatusVal)
 ================
 Statuses have been added to keep the user up to date as to what the wallet is currently doing. Each status also has a corresponding currentStatusVal integer that can be accessed as well.
 * Idle - 1 - Starting state
@@ -129,11 +129,11 @@ Set the current Spend Path:
 wl.setSpendPath(path)
 ```
 Default View Paths:
-- dapscoin seed: "m/44'/" + coinType + "'/0'/0/0"
+- prcycoin seed: "m/44'/" + coinType + "'/0'/0/0"
 - Bitcoin seed: "m/44'/" + coinType + "'/0'/0/0"
 
 Default Spend Paths:
-- dapscoin seed: "m/44'/" + coinType + "'/1'/0/0"
+- prcycoin seed: "m/44'/" + coinType + "'/1'/0/0"
 - Bitcoin seed: "m/44'/" + coinType + "'/0'/0/0"
 
 Basic Test
@@ -142,14 +142,14 @@ Basic Test
 ### Requires
 *  node.js 
 *  Mnemonic Recovery Phrase
-*  DAPS
+*  PRCY
 
 ### Start Testing
 1. Create a new wallet
 2. Write down the Mnemonic Recovery Phrase
-3. Send some coins (minimum 5 DAPS recommended)
-4. Add the Mnemonic Recovery Phrase on [\tests\wallet\createwallet.js](https://github.com/DAPSCoin/DAPSJS/blob/master/tests/wallet/createwallet.js#L5)
-5. Edit the amount of DAPS to send on [\tests\wallet\createwallet.js](https://github.com/DAPSCoin/DAPSJS/blob/master/tests/wallet/createwallet.js#L9)
+3. Send some coins (minimum 1 PRCY recommended)
+4. Add the Mnemonic Recovery Phrase on [\tests\wallet\createwallet.js](https://github.com/PRCYCoin/PRCYJS/blob/master/tests/wallet/createwallet.js#L5)
+5. Edit the amount of PRCY to send on [\tests\wallet\createwallet.js](https://github.com/PRCYCoin/PRCYJS/blob/master/tests/wallet/createwallet.js#L9)
 6. Run `npm install`
-7. Edit `src/dapslib/config.js` with the required information
+7. Edit `src/prcylib/config.js` with the required information
 8. Run `npm run tests`

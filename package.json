@@ -1,18 +1,18 @@
 {
-  "name": "dapsjs",
+  "name": "prcyjs",
   "version": "1.0.1",
-  "description": "JavaScript library for the creation, scanning and sending of DAPS privacy coins",
+  "description": "JavaScript library for the creation, scanning and sending of PRCY privacy coins",
   "main": "index.js",
-  "repository": "github:DAPSCoin/DAPSJS",
-  "bugs": "https://github.com/DAPSCoin/DAPSJS/issues",
+  "repository": "github:PRCYCoin/PRCYJS",
+  "bugs": "https://github.com/PRCYCoin/PRCYJS/issues",
   "scripts": {
     "tests": "node tests/index.js"
   },
   "keywords": [
-    "DAPS",
-    "DAPSCoin"
+    "PRCY",
+    "PRCYCoin"
   ],
-  "author": "DAPS Coin",
+  "author": "PRCY Coin",
   "license": "ISC",
   "dependencies": {
     "bigi": "^1.4.2",

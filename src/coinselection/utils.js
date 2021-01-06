@@ -1,4 +1,4 @@
-const constants = require('../dapslib/constants');
+const constants = require('../prcylib/constants');
 
 // Compute the transaction fee based on the Number of Inputs, Number of Outputs, and Ring Size
 function ComputeTxSize(numIn, numOut, ringSize)

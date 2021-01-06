@@ -1,6 +1,6 @@
-const bpin = require("../../src/dapslib/bpinput");
-const BPCreator = require("../../src/dapslib/bulletproofs");
-const config = require('../../src/dapslib/config')
+const bpin = require("../../src/prcylib/bpinput");
+const BPCreator = require("../../src/prcylib/bulletproofs");
+const config = require('../../src/prcylib/config')
 
 var bp = {
   blinds: Buffer.from(
@@ -11,7 +11,7 @@ var bp = {
 };
 
 BPCreator.CreateRangeBulletProof(
-  config.DAPS_SERVER,
+  config.PRCY_SERVER,
   [
     "1111111111111111111111111111111111111111111111111111111111111111",
     "2222222222222222222222222222222222222222222222222222222222222222",

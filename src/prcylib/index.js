@@ -12,7 +12,7 @@ const utils = require('./utils')
 // privateKeys: [private keys corresponding to inputs being spent]
 // ringSize: 11-15
 // all commitments are in pubkey format (starts with 02 or 03)
-function CreateDAPSPrivacyTransaction(
+function CreatePRCYPrivacyTransaction(
   apiServer,
   ins,
   outs,
@@ -138,7 +138,7 @@ function CreateFullTransaction(
     }
 
     GetDecoys(apiServer, 200, function (decoysDetails) {
-      CreateDAPSPrivacyTransaction(apiServer, ins, outs, decoysDetails, privateKeys, ringSize, function (tx) {
+      CreatePRCYPrivacyTransaction(apiServer, ins, outs, decoysDetails, privateKeys, ringSize, function (tx) {
         if (!tx.vin) {
           alert('Error:' + tx);
           return;
@@ -152,7 +152,7 @@ function CreateFullTransaction(
 }
 
 module.exports = {
-    CreateDAPSPrivacyTransaction,
+    CreatePRCYPrivacyTransaction,
     SendRawTransaction,
     CreateFullTransaction,
     GetDecoys

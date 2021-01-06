@@ -16,7 +16,7 @@ const GET = {
     MAX_TX_INPUTS: 50,
     BASE_FEE: 100000000,
     // Masternode Collateral amount
-    COLLATERAL: 100000000000000,
+    COLLATERAL: 500000000000,
 }
 
 module.exports = GET;

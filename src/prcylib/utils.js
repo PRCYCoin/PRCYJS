@@ -249,11 +249,11 @@ function validateArrayType(input, errorMessage, allowEmpty) {
   }
 }
 
-function toDAPS(amount) {
+function toPRCY(amount) {
   return amount/100000000.0;
 }
-function balanceInDAPS(amount) {
-  return toDAPS(amount);
+function balanceInPRCY(amount) {
+  return toPRCY(amount);
 }
 
 // Check if coin type is from Audit or Masternode/Staking
@@ -467,8 +467,8 @@ module.exports = {
   computeYFromX: computeYFromX,
   toPubkeyFormat: toPubkeyFormat,
   toCommitmentFormat: toCommitmentFormat,
-  toDAPS: toDAPS,
-  balanceInDAPS: balanceInDAPS,
+  toPRCY: toPRCY,
+  balanceInPRCY: balanceInPRCY,
   isSpecialCoin: isSpecialCoin,
   computeKeyImage: computeKeyImage,
   computeUTXODetails: computeUTXODetails,

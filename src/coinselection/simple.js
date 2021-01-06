@@ -1,6 +1,6 @@
 const utils = require('./utils')
-const config = require("../dapslib/config");
-const constants = require('../dapslib/constants');
+const config = require("../prcylib/config");
+const constants = require('../prcylib/constants');
 
 const selectCoins = function (coinMap, sendAmount, ringSize, numOut) {
     var vValue = [];    

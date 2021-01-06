@@ -2,7 +2,7 @@ const config = require("./config");
 const bpin = require("./bpinput");
 const request = require("request");
 
-// Generate BulletProof by providing blinds and outAmounts in serialized hex following the BPInput structure in dapslib/bpinput.js
+// Generate BulletProof by providing blinds and outAmounts in serialized hex following the BPInput structure in prcylib/bpinput.js
 function CreateRangeBulletProof(apiServer, blinds, outAmounts, cb) {
   if (blinds.length != outAmounts.length || !blinds || blinds.length <= 0) {
     throw "invalid blind and amounts";
