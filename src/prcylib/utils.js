@@ -79,7 +79,7 @@ function paddTo11Char(str) {
 // Genereate a Stealth Address from the view and spend key
 function generatePrivacyAddress(view, spend) {
   var addressBuff = Buffer.concat([
-    Buffer.from([136]),
+    Buffer.from([135]),
     Buffer.from(spend),
     Buffer.from(view),
   ]);
