@@ -14,7 +14,7 @@ const GET = {
     getH: getH,
     // Max number of inputs for a transaction
     MAX_TX_INPUTS: 50,
-    BASE_FEE: 100000000,
+    BASE_FEE: 1000000,
     // Masternode Collateral amount
     COLLATERAL: 500000000000,
 }
