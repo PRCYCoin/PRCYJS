@@ -112,12 +112,12 @@ Wallet.prototype.setSpendPath = function (passedSpendPath) {
 
 // Get last payment received in PRCY
 Wallet.prototype.lastPayment = function () {
-  return lastPayment / constants.BASE_FEE;
+  return lastPayment / constants.COIN;
 }
 
 // Get last reward received in PRCY (includes Masternode, Mined, Minted)
 Wallet.prototype.lastReward = function () {
-  return lastReward / constants.BASE_FEE;
+  return lastReward / constants.COIN;
 }
 
 // Get last reward type received (between Masternode, Mined, Minted)
@@ -127,17 +127,17 @@ Wallet.prototype.lastRewardType = function () {
 
 // Get last Masternode reward received in PRCY
 Wallet.prototype.lastMNReward = function () {
-  return lastMNReward / constants.BASE_FEE;
+  return lastMNReward / constants.COIN;
 }
 
 // Get last Stake (Minted) reward received in PRCY
 Wallet.prototype.lastStakeReward = function () {
-  return lastStakeReward / constants.BASE_FEE;
+  return lastStakeReward / constants.COIN;
 }
 
 // Get last PoA Mined reward received in PRCY
 Wallet.prototype.lastPoAReward = function () {
-  return lastPoAReward / constants.BASE_FEE;
+  return lastPoAReward / constants.COIN;
 }
 
 // Get the total count of Masternode rewards received
@@ -162,14 +162,14 @@ Wallet.prototype.rewardCount = function () {
 
 // Get total rewards received in PRCY (includes Masternode, Mined, Minted)
 Wallet.prototype.rewardTotal = function () {
-  return rewardTotal / constants.BASE_FEE;
+  return rewardTotal / constants.COIN;
 }
 
 // Get the Estimated Transaction Fee in PRCY - 0.26 default like QT wallet if the value has not changed from 0
 Wallet.prototype.estimatedFee = function () {
   if (txFee == 0) {
-    // Use estimated 0.26 as we do in the QT Wallet
-    txFee = "0.26";
+    // Use estimated constants.BASE_FEE
+    txFee = constants.BASE_FEE;
   }
   return txFee;
 }
@@ -706,17 +706,17 @@ Wallet.prototype.computeWalletState = async function (
     }
   }
   if (enableDebug == true) {
-    console.log("Your last received payment was: " + lastPayment / constants.BASE_FEE + " PRCY");
-    console.log("Your last received reward was: " + lastReward / constants.BASE_FEE + " PRCY");
+    console.log("Your last received payment was: " + lastPayment / constants.COIN + " PRCY");
+    console.log("Your last received reward was: " + lastReward / constants.COIN + " PRCY");
     console.log("Your last received reward type was: " + lastRewardType);
-    console.log("Your last received MN reward was: " + lastMNReward / constants.BASE_FEE + " PRCY");
-    console.log("Your last received Staking reward was: " + lastStakeReward / constants.BASE_FEE + " PRCY");
-    console.log("Your last received PoA reward was: " + lastPoAReward / constants.BASE_FEE + " PRCY");
+    console.log("Your last received MN reward was: " + lastMNReward / constants.COIN + " PRCY");
+    console.log("Your last received Staking reward was: " + lastStakeReward / constants.COIN + " PRCY");
+    console.log("Your last received PoA reward was: " + lastPoAReward / constants.COIN + " PRCY");
     console.log("You have received a total of: " + rewardMNCount + " MN rewards");
     console.log("You have received a total of: " + rewardStakeCount + " Staking rewards");
     console.log("You have received a total of: " + rewardPoACount + " PoA Mining rewards");
     console.log("You have received a total of: " + rewardCount + " rewards");
-    console.log("You have received a total of: " + rewardTotal / constants.BASE_FEE + " PRCY from rewards");
+    console.log("You have received a total of: " + rewardTotal / constants.COIN + " PRCY from rewards");
   }
   if (enableDebug == true) {
     endDate = new Date();
