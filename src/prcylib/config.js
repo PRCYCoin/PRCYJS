@@ -14,7 +14,7 @@ const config = {
     PRCY_TX_SERVER: process.env.NODE_ENV == 'DEV' ? DEV_SERVER : TX_SERVER,
     CONFIRMATION: 100,
     // CoinGecko Price API Link (USD)
-    //PRICE_COINGECKO: "https://api.coingecko.com/api/v3/simple/price?ids=prcycoin&vs_currencies=USD&include_market_cap=false&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false",
+    PRICE_COINGECKO: "https://api.coingecko.com/api/v3/simple/price?ids=prcy-coin&vs_currencies=USD&include_market_cap=false&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false",
     // Whether or not to lock masternode collaterals during transaction sends - default true to avoid breaking Masternodes
     LOCK_COLLATERAL: true,
     // Enable Debugging
