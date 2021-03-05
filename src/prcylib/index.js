@@ -103,6 +103,7 @@ function CreateFullTransaction(
   var privateKeys = [];
 
   if (selection){
+    txFee = selection.fee;
     for (const ki of selection.selectedCoins) {
       var oneTimePk = allUnspents[ki].oneTimePk;
       privateKeys.push(oneTimePk);
