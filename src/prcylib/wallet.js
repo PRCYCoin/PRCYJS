@@ -306,7 +306,7 @@ function Wallet(input, apiServer, network, masterseed) {
 // Create a Raw Transaction to a destination Stealth Address for n amount
 Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
   // Check for Spendable amount with a bit of padding for fees
-  if (this.spendable <= parseInt((parseFloat(amount) + 3.0) * 100000000)) {
+  if (this.spendable <= parseInt((parseFloat(amount) + 1) * 100000000)) {
     throw "Insufficient funds!";
   }
 
