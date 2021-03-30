@@ -62,6 +62,7 @@ var txFee = 0;
 
 // Debug variables
 var enableDebug = config.ENABLE_DEBUG;
+var enableRewardsCounter = config.ENABLE_REWARDS_COUNTER;
 var startDate;
 var endDate;
 var scanTime;
@@ -705,7 +706,7 @@ Wallet.prototype.computeWalletState = async function (
       this.transactionHistory[tx.txid] = historyItem;
     }
   }
-  if (enableDebug == true) {
+  if (enableRewardsCounter == true) {
     console.log("Your last received payment was: " + lastPayment / constants.COIN + " PRCY");
     console.log("Your last received reward was: " + lastReward / constants.COIN + " PRCY");
     console.log("Your last received reward type was: " + lastRewardType);

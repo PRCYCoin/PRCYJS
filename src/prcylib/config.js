@@ -19,6 +19,8 @@ const config = {
     LOCK_COLLATERAL: true,
     // Enable Debugging
     ENABLE_DEBUG: true,
+    // Enable the Rewards Counter in console log
+    ENABLE_REWARDS_COUNTER: false,
     // reCAPTCHA key from https://developers.google.com/recaptcha/docs/verify
     CAPTCHA_KEY: "",
 }
