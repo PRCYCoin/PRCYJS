@@ -307,7 +307,7 @@ function Wallet(input, apiServer, network, masterseed) {
 // Create a Raw Transaction to a destination Stealth Address for n amount
 Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
   // Check for Spendable amount with a bit of padding for fees
-  if (this.spendable <= parseInt((parseFloat(amount) + 1) * 100000000)) {
+  if (this.spendable <= parseInt((parseFloat(amount) + 1) * constants.COIN)) {
     throw "Insufficient funds!";
   }
 
@@ -334,7 +334,7 @@ Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
     this.apiServer,
     allUnspentUTXOs,
     destination,
-    100000000 * amount,
+    constants.COIN * amount,
     this.address,
     function (tx, changeAmount, outgoingKeyImages) {
       // Broadcasting tx
@@ -379,7 +379,7 @@ Wallet.prototype.sendTo = function (destination, amount, cb) {
 
         var historyItem = {
           type: isSelfPayment ? "Self Payment" : "Sent",
-          amount: 100000000 * amount,
+          amount: constants.COIN * amount,
           timestamp: Math.floor(Date.now() / 1000),
           txid: Buffer.from(tx.getTxId()).reverse().toString("hex"),
           confirmed: false,
@@ -656,7 +656,7 @@ Wallet.prototype.computeWalletState = async function (
       TxAmount = credit - debit;
     } else if (tx.type == "standard") {
       if (isFromMe) {
-        if (debit == credit + parseInt(tx.txfee * 100000000)) {
+        if (debit == credit + parseInt(tx.txfee * constants.COIN)) {
           TxAmount = firstOut;
           if (TxAmount == constants.COLLATERAL || debit == constants.COLLATERAL || credit == constants.COLLATERAL) {
             // send to self for masternode
@@ -667,7 +667,7 @@ Wallet.prototype.computeWalletState = async function (
           }
         } else {
           txKind = "Sent";
-          TxAmount = debit - credit - parseInt(tx.txfee * 100000000);
+          TxAmount = debit - credit - parseInt(tx.txfee * constants.COIN);
         }
       } else {
         txKind = "Received";

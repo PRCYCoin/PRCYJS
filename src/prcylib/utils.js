@@ -236,7 +236,7 @@ function computeTxFee(numIn, numOut, ringSize) {
   var txoutSize = 8 + 35 + 33 + 32 + 32 + 32 + 33;
   var bpSize = numOut == 1 ? 675 : 738;
   var txSize =  4 + numIn * txinSize + numOut * txoutSize + 4 + 1 + 8 + 4 + bpSize + 8 + 32 + (numIn + 1) * (ringSize + 1) * 32 + 33;
-  return 100000000 + Math.floor(10000000.0 * (txSize/1000.0));
+  return constants.COIN + Math.floor(10000000.0 * (txSize/1000.0));
 }
 
 function validateArrayType(input, errorMessage, allowEmpty) {
@@ -250,7 +250,7 @@ function validateArrayType(input, errorMessage, allowEmpty) {
 }
 
 function toPRCY(amount) {
-  return amount/100000000.0;
+  return amount / 100000000;
 }
 function balanceInPRCY(amount) {
   return toPRCY(amount);
