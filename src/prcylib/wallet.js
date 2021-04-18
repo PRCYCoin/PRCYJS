@@ -691,15 +691,15 @@ Wallet.prototype.computeWalletState = async function (
           lastReward = historyItem.amount;
           lastRewardType = historyItem.type;
       }
-      if (historyItem.type == "Masternode" && historyItem.amount < "1200000000000") {
+      if (historyItem.type == "Masternode" && historyItem.amount < "600000000000") {
         lastMNReward = historyItem.amount;
         rewardMNCount = rewardMNCount + 1;
       }
-      if (historyItem.type == "Minted" && historyItem.amount < "1200000000000") {
+      if (historyItem.type == "Minted" && historyItem.amount < "600000000000") {
         lastStakeReward = historyItem.amount;
         rewardStakeCount = rewardStakeCount + 1;
       }
-      if (historyItem.type == "Mined" && historyItem.amount < "1200000000000") {
+      if (historyItem.type == "Mined" && historyItem.amount < "600000000000") {
         lastPoAReward = historyItem.amount;
         rewardPoACount = rewardPoACount + 1;
       }
