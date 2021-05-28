@@ -170,7 +170,7 @@ Wallet.prototype.rewardTotal = function () {
 Wallet.prototype.estimatedFee = function () {
   if (txFee == 0) {
     // Use estimated constants.BASE_FEE
-    txFee = constants.BASE_FEE;
+    txFee = constants.TX_FEE;
   }
   return txFee;
 }

@@ -16,6 +16,7 @@ const GET = {
     MAX_TX_INPUTS: 50,
     COIN: 100000000,
     BASE_FEE: 1000000,
+    TX_FEE: 0.00026110,
     // Masternode Collateral amount
     COLLATERAL: 500000000000,
 }
