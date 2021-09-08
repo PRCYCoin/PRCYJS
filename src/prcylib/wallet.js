@@ -307,8 +307,11 @@ function Wallet(input, apiServer, network, masterseed) {
 // Create a Raw Transaction to a destination Stealth Address for n amount
 Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
   // Check for Spendable amount with a bit of padding for fees
-  if (this.spendable <= parseInt((parseFloat(amount) + 1) * constants.COIN)) {
-    throw "Insufficient funds!";
+  if (this.spendable <= parseInt((parseFloat(amount) + 0.1) * constants.COIN)) {
+    throw "Insufficient funds! Please include 0.1 PRCY for fee.";
+  }
+  if (amount <= 5) {
+    throw "Insufficient funds! Minimum 5 PRCY to create a transaction.";
   }
 
   var allUnspentUTXOs = {};

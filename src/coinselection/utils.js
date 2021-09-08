@@ -14,7 +14,7 @@ function ComputeTxSize(numIn, numOut, ringSize)
 function ComputeFee(numIn, numOut, ringSize)
 {
     var txSize = ComputeTxSize(numIn, numOut, ringSize);
-    var nFeeNeeded = constants.BASE_FEE + (txSize/1000) * 10000000;
+    var nFeeNeeded = (txSize/1000000) * 10000000;
     return nFeeNeeded;
 }
 
