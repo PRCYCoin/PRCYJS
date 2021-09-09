@@ -1,6 +1,6 @@
 {
   "name": "prcyjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "JavaScript library for the creation, scanning and sending of PRCY privacy coins",
   "main": "index.js",
   "repository": "github:PRCYCoin/PRCYJS",
