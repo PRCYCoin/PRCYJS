@@ -15,6 +15,7 @@ function ComputeFee(numIn, numOut, ringSize)
 {
     var txSize = ComputeTxSize(numIn, numOut, ringSize);
     var nFeeNeeded = (txSize/1000000) * 10000000;
+    if (nFeeNeeded >= constants.COIN) nFeeNeeded = constants.COIN;
     return nFeeNeeded;
 }
 
