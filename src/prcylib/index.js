@@ -10,7 +10,7 @@ const utils = require('./utils')
 // outs: [{address, amount}], amount is in string
 // decoysDetails: [{hash, n, pubkey, commitment}]: (hash, pubkey, commitment) => byte arrays, amount: string
 // privateKeys: [private keys corresponding to inputs being spent]
-// ringSize: 11-15
+// ringSize: 27-32
 // all commitments are in pubkey format (starts with 02 or 03)
 function CreatePRCYPrivacyTransaction(
   apiServer,
@@ -95,7 +95,7 @@ function CreateFullTransaction(
   for (const ki of Object.keys(allUnspents)) {
     coinMap[ki] = allUnspents[ki].amount.amount;
   }
-  var ringSize = Math.floor(Math.random() * 5) + 12;
+  var ringSize = Math.floor(Math.random() * 5) + 28;
   var selection = SimpleCoinSelect.selectCoins(coinMap, amount, ringSize, 2);
   // create ins
   var ins = [];
