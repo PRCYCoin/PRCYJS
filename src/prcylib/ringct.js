@@ -6,8 +6,8 @@ const Script = require("btc-script");
 
 // Default settings for Ring Sizes
 const MAX_NUM_RING = 50;
-const MIN_RING_SIZE = 11;
-const MAX_RING_SIZE = 15;
+const MIN_RING_SIZE = 27;
+const MAX_RING_SIZE = 32;
 
 function negatePoint(p) {
     var cop = [...p];

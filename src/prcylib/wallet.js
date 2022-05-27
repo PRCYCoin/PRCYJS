@@ -310,9 +310,6 @@ Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
   if (this.spendable <= parseInt((parseFloat(amount) + 0.1) * constants.COIN)) {
     throw "Insufficient funds! Please include 0.1 PRCY for fee.";
   }
-  if (amount <= 5) {
-    throw "Insufficient funds! Minimum 5 PRCY to create a transaction.";
-  }
 
   var allUnspentUTXOs = {};
   for (const ki of Object.keys(this.unspentKeyImages)) {
