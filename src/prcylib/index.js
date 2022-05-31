@@ -96,6 +96,8 @@ function CreateFullTransaction(
     coinMap[ki] = allUnspents[ki].amount.amount;
   }
   var ringSize = Math.floor(Math.random() * 5) + 28;
+  console.log("Creating Transaction");
+  console.log("Using Ring Size: " + ringSize);
   var selection = SimpleCoinSelect.selectCoins(coinMap, amount, ringSize, 2);
   // create ins
   var ins = [];
