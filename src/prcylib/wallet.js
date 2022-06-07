@@ -351,7 +351,7 @@ Wallet.prototype.broadcastTransaction = function (tx, cb) {
     function (ret) {
       cb(ret);
       if (enableDebug == true) {
-        console.log("broadcasting using: " + apiTXServer)
+        console.log("Broadcasting TX using: " + apiTXServer);
       }
     }
   );
@@ -386,8 +386,15 @@ Wallet.prototype.sendTo = function (destination, amount, cb) {
         };
         wl.transactionHistory[historyItem.txid] = historyItem;
         cb({ success: true, txid: historyItem.txid });
+        if (enableDebug == true) {
+          console.log("TXID: " + historyItem.txid);
+          console.log("Explorer Link: https://explorer.prcycoin.com/tx/" + historyItem.txid);
+        }
       } else {
         cb({ success: false, reason: ret.reason });
+        if (enableDebug == true) {
+          console.log("Error: " + ret.reason);
+        }
       }
     });
   });

@@ -2,6 +2,9 @@ const utils = require('./utils')
 const config = require("../prcylib/config");
 const constants = require('../prcylib/constants');
 
+// Debug variables
+var enableDebug = config.ENABLE_DEBUG;
+
 const selectCoins = function (coinMap, sendAmount, ringSize, numOut) {
     var vValue = [];    
     var nTotalLower = 0;
@@ -10,6 +13,13 @@ const selectCoins = function (coinMap, sendAmount, ringSize, numOut) {
     var coinLowestLarger = null
     var nValueRet = 0;
     var LockCollateral = config.LOCK_COLLATERAL;
+    if (enableDebug == true) {
+        if (config.LOCK_COLLATERAL == true) {
+            console.log("LOCK_COLLATERAL: " + config.LOCK_COLLATERAL + ": Masternode Collateral will not be spent");
+        } else {
+            console.log("LOCK_COLLATERAL: " + config.LOCK_COLLATERAL + ": Masternode Collateral will be spent");
+        }
+    }
     for (const ki of Object.keys(coinMap)) {
         var n = coinMap[ki];
         if (n == 0 || (n == constants.COLLATERAL && LockCollateral)) continue;
@@ -81,7 +91,12 @@ const selectCoins = function (coinMap, sendAmount, ringSize, numOut) {
         feeNeeded = utils.ComputeFee(setCoinsRet.length, 2, ringSize);
         if (nValueRet >= feeNeeded + sendAmount) break;
     }
-
+    if (enableDebug == true) {
+        console.log("Selecting coins");
+        console.log("selectedCoins (Key Images): " + setCoinsRet);
+        console.log("selectedValueSum: " + nValueRet / constants.COIN);
+        console.log("fee: " + feeNeeded / constants.COIN);
+    }
     return {selectedCoins: setCoinsRet, selectedValueSum: nValueRet, fee: feeNeeded};
 }
 
