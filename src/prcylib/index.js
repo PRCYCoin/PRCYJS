@@ -4,6 +4,10 @@ const config = require("./config");
 const request = require("request");
 const SimpleCoinSelect = require("../coinselection/simple");
 const utils = require('./utils')
+const constants = require('../prcylib/constants');
+
+// Debug variables
+var enableDebug = config.ENABLE_DEBUG;
 
 // Create a Privacy Transaction using parameters in the format below.
 // ins: [{hash, n, amount, blind, commitment}] : (hash, blind, commitment) => byte arrays, amount: string
@@ -96,8 +100,12 @@ function CreateFullTransaction(
     coinMap[ki] = allUnspents[ki].amount.amount;
   }
   var ringSize = Math.floor(Math.random() * 5) + 28;
-  console.log("Creating Transaction");
-  console.log("Using Ring Size: " + ringSize);
+  
+  if (enableDebug == true) {
+    console.log("Creating Transaction");
+    console.log("Using Ring Size: " + ringSize);
+  }
+
   var selection = SimpleCoinSelect.selectCoins(coinMap, amount, ringSize, 2);
   // create ins
   var ins = [];
@@ -106,6 +114,9 @@ function CreateFullTransaction(
 
   if (selection){
     txFee = selection.fee;
+    if (enableDebug == true) {
+      console.log("Using txFee: " + txFee / constants.COIN);
+    }
     for (const ki of selection.selectedCoins) {
       var oneTimePk = allUnspents[ki].oneTimePk;
       privateKeys.push(oneTimePk);
@@ -150,7 +161,8 @@ function CreateFullTransaction(
       })
     })
   } else {
-    console.log("No coins available for selection. Please try again.");
+    console.error("No coins available for selection. Please try again.");
+    return false;
   }
 }
 
