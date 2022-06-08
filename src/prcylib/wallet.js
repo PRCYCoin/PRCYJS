@@ -835,4 +835,13 @@ Wallet.prototype.markSpents = function (viewkey, spendpub, spents) {
   });
 };
 
+// Generate an Integrated Address with the provided paymentID
+Wallet.prototype.generateIntegratedPrivacyAddress = function (paymentID) {
+  this.integratedaddress = utils.generateIntegratedPrivacyAddress(
+    this.extendedViewKey.publicKey,
+    this.extendedSpendKey.publicKey,
+    paymentID
+  );
+};
+
 module.exports = Wallet;
