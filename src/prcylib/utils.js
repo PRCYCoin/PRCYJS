@@ -94,6 +94,25 @@ function generatePrivacyAddress(view, spend) {
   return address;
 }
 
+function generateIntegratedPrivacyAddress(view, spend, paymentID) {
+  let p = numToBytes(paymentID);
+  var addressBuff = Buffer.concat([
+    Buffer.from([136]),
+    Buffer.from(spend),
+    Buffer.from(view),
+    Buffer.from(p)
+  ]);
+  var h = bcrypto.hash256(addressBuff);
+  addressBuff = Buffer.concat([Buffer.from(addressBuff), h.slice(0, 4)]);
+  var address = "";
+  for (var i = 0; i < 10; i++) {
+    var end = (i + 1) * 8 > 79 ? 79 : (i + 1) * 8;
+    address =
+      address + paddTo11Char(bs58.encode(addressBuff.slice(i * 8, end)));
+  }
+  return address;
+}
+
 function decodeWithRemovePadding(encoded, expectedLength) {
   var encodedBlock = encoded;
   var decoded = bs58.decode(encodedBlock);
@@ -451,6 +470,7 @@ function encryptKeys(encryptPubKey, viewKey, spendPub) {
 module.exports = {
   decodePrivacyAddress: decodePrivacyAddress,
   generatePrivacyAddress: generatePrivacyAddress,
+  generateIntegratedPrivacyAddress: generateIntegratedPrivacyAddress,
   genRanHex: genRanHex,
   generateRandom32Bytes: generateRandom32Bytes,
   createCommitment: createCommitment,
