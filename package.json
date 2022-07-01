@@ -27,7 +27,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "js-sha3": "^0.8.0",
     "request": "^2.88.2",
-    "secp256k1": "^4.0.2"
+    "secp256k1": "^4.0.3"
   },
   "devDependencies": {
     "eslint": "^7.2.0"
