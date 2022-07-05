@@ -316,7 +316,7 @@ Wallet.prototype.createRawTransaction = function (destination, amount, cb) {
     if (
       !(
         isSpecialCoin(this.utxoDetails[ki].txtype) &&
-        this.utxoDetails[ki].blockheight + config.CONFIRMATION >
+        this.utxoDetails[ki].blockheight + constants.CONFIRMATIONS >
         this.currentBlockHeight
       )
     ) {
@@ -422,7 +422,7 @@ Wallet.prototype.recomputeBalance = function () {
     if (
       !(
         isSpecialCoin(this.utxoDetails[ki].txtype) &&
-        this.utxoDetails[ki].blockheight + config.CONFIRMATION >
+        this.utxoDetails[ki].blockheight + constants.CONFIRMATIONS >
         this.currentBlockHeight
       )
     ) {
