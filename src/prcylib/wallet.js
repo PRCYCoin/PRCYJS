@@ -245,7 +245,7 @@ function Wallet(input, apiServer, network, masterseed) {
     throw "Invalid mnemonics";
   }
 
-  var net = network ? network : "mainnet";
+  var net = network ? network : config.PRCYCHAIN;
   seed = masterseed ? masterseed : "prcycoin seed";
 
   coinType = net == "testnet" ? "1" : "853";
