@@ -246,13 +246,13 @@ function Wallet(input, apiServer, network, masterseed) {
   }
 
   var net = network ? network : config.PRCYCHAIN;
-  seed = masterseed ? masterseed : "prcycoin seed";
+  seed = masterseed ? masterseed : constants.SEED;
 
   coinType = net == "testnet" ? "1" : "853";
 
   this.apiServer = apiServer ? apiServer : config.PRCY_SERVER;
 
-  if (seed == "prcycoin seed") {
+  if (seed == constants.SEED) {
     this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
     this.setSpendPath("m/44'/" + coinType + "'/1'/0/0");
     // Generate private view and spend key
@@ -288,7 +288,7 @@ function Wallet(input, apiServer, network, masterseed) {
       this.spendPubKey
     );
   } else {
-    console.log("Incorrect masterseed used - must be prcycoin seed or Bitcoin seed");
+    console.log("Incorrect masterseed used - must be " + constants.SEED + " or Bitcoin seed");
   }
 
   this.utxoDetails = {};

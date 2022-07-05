@@ -20,6 +20,7 @@ const GET = {
     // Masternode Collateral amount
     COLLATERAL: 500000000000,
     CONFIRMATIONS: 100,
+    SEED: "prcycoin seed",
 }
 
 module.exports = GET;
