@@ -21,6 +21,7 @@ const GET = {
     COLLATERAL: 500000000000,
     CONFIRMATIONS: 100,
     SEED: "prcycoin seed",
+    CoinType: 853,
 }
 
 module.exports = GET;

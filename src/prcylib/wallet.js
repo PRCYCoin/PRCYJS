@@ -248,7 +248,7 @@ function Wallet(input, apiServer, network, masterseed) {
   var net = network ? network : config.PRCYCHAIN;
   seed = masterseed ? masterseed : constants.SEED;
 
-  coinType = net == "testnet" ? "1" : "853";
+  coinType = net == "testnet" ? "1" : constants.CoinType;
 
   this.apiServer = apiServer ? apiServer : config.PRCY_SERVER;
 
