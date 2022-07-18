@@ -1,6 +1,6 @@
 {
   "name": "prcyjs",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "JavaScript library for the creation, scanning and sending of PRCY privacy coins",
   "main": "index.js",
   "repository": "github:PRCYCoin/PRCYJS",
@@ -17,19 +17,18 @@
   "dependencies": {
     "bigi": "^1.4.2",
     "binstring": "^0.2.1",
-    "bip39": "^3.0.2",
-    "bs58": "^4.0.1",
+    "bip39": "^3.0.4",
+    "bs58": "^5.0.0",
     "bs58check": "^2.1.2",
     "btc-script": "^0.1.12",
     "create-hash": "^1.2.0",
-    "crypto-binary": "^0.1.1",
+    "crypto-binary": "git+http://git@github.com/j4ys0n/crypto-binary#4eea60398a49dfc03a73adaea117dddd843ac2ad",
     "crypto-browserify": "^3.12.0",
-    "eslint-plugin-vue": "^6.2.2",
     "js-sha3": "^0.8.0",
-    "request": "^2.88.2",
-    "secp256k1": "^4.0.2"
+    "postman-request": "^2.88.1-postman.31",
+    "secp256k1": "^4.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.2.0"
+    "eslint": "^8.20.0"
   }
 }

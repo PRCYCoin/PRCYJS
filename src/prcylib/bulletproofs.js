@@ -1,6 +1,6 @@
 const config = require("./config");
 const bpin = require("./bpinput");
-const request = require("request");
+const request = require("postman-request");
 
 // Generate BulletProof by providing blinds and outAmounts in serialized hex following the BPInput structure in prcylib/bpinput.js
 function CreateRangeBulletProof(apiServer, blinds, outAmounts, cb) {
