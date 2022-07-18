@@ -5,7 +5,7 @@ const secp256k1 = require("secp256k1");
 const sha3 = require("js-sha3");
 const config = require("./config");
 const utils = require("./utils");
-const request = require("request");
+const request = require("postman-request");
 const constants = require('../prcylib/constants');
 
 const promisify = (fn) => {
@@ -252,25 +252,11 @@ function Wallet(input, apiServer, network, masterseed) {
 
   this.apiServer = apiServer ? apiServer : config.PRCY_SERVER;
 
-  if (seed == constants.SEED) {
-    this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
-    this.setSpendPath("m/44'/" + coinType + "'/1'/0/0");
-    // Generate private view and spend key
-    this.extendedViewKey = generateViewExtendedKey(mnemonics, seed);
-    this.extendedSpendKey = generateSpendExtendedKey(mnemonics, seed);
-    this.viewKey = toBTCSecret(this.extendedViewKey.privateKey);
-    this.spendKey = toBTCSecret(this.extendedSpendKey.privateKey);
-    this.pubSpend = Buffer.from(this.extendedSpendKey.publicKey)
-      .reverse()
-      .toString("hex");
-    this.address = utils.generatePrivacyAddress(
-      this.extendedViewKey.publicKey,
-      this.extendedSpendKey.publicKey
-    );
-    this.viewPubKey = this.extendedViewKey.publicKey;
-    this.spendPubKey = this.extendedSpendKey.publicKey;
-    this.viewPrivKey = this.extendedViewKey.privateKey;
-  } else if (seed == "Bitcoin seed") {
+  if (seed == "Bitcoin seed") {
+    // Use any seed other than "prcycoin seed" AT YOUR OWN RISK
+    // Note: Bitcoin seed follows the typical spend/view paths
+    // These can not be accessed from the Desktop Wallet without special builds
+    // Requiring edits to the Seed and Spend Path
     this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
     this.setSpendPath("m/44'/" + coinType + "'/0'/0/0");
     // Generate private view and spend key
@@ -288,7 +274,27 @@ function Wallet(input, apiServer, network, masterseed) {
       this.spendPubKey
     );
   } else {
-    console.log("Incorrect masterseed used - must be " + constants.SEED + " or Bitcoin seed");
+    // Use any seed other than "prcycoin seed" AT YOUR OWN RISK
+    // Note: prcycoin seed uses a different spend path than typical
+    // These can not be accessed from the Desktop Wallet without special builds
+    // Requiring edits to the Seed
+    this.setViewPath("m/44'/" + coinType + "'/0'/0/0");
+    this.setSpendPath("m/44'/" + coinType + "'/1'/0/0");
+    // Generate private view and spend key
+    this.extendedViewKey = generateViewExtendedKey(mnemonics, seed);
+    this.extendedSpendKey = generateSpendExtendedKey(mnemonics, seed);
+    this.viewKey = toBTCSecret(this.extendedViewKey.privateKey);
+    this.spendKey = toBTCSecret(this.extendedSpendKey.privateKey);
+    this.pubSpend = Buffer.from(this.extendedSpendKey.publicKey)
+      .reverse()
+      .toString("hex");
+    this.address = utils.generatePrivacyAddress(
+      this.extendedViewKey.publicKey,
+      this.extendedSpendKey.publicKey
+    );
+    this.viewPubKey = this.extendedViewKey.publicKey;
+    this.spendPubKey = this.extendedSpendKey.publicKey;
+    this.viewPrivKey = this.extendedViewKey.privateKey;
   }
 
   this.utxoDetails = {};
