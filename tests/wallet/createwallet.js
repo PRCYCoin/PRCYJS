@@ -6,7 +6,7 @@ var wl = new Wallet({
 });
 wl.scanWalletTransactions(function () {
   console.log("balance: ", wl.spendable);
-  wl.sendTo(wl.address, 10, function (ret) {
+  wl.sendTo(wl.address, 1, function (ret) {
     if (!ret.success) {
       console.log("failed due to: ", ret.reason);
     } else {
