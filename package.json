@@ -17,16 +17,16 @@
   "dependencies": {
     "bigi": "^1.4.2",
     "binstring": "^0.2.1",
-    "bip39": "^3.0.4",
+    "bip39": "^3.1.0",
     "bs58": "^5.0.0",
-    "bs58check": "^2.1.2",
+    "bs58check": "^3.0.1",
     "btc-script": "^0.1.12",
     "create-hash": "^1.2.0",
     "crypto-binary": "git+http://git@github.com/j4ys0n/crypto-binary#4eea60398a49dfc03a73adaea117dddd843ac2ad",
     "crypto-browserify": "^3.12.0",
     "js-sha3": "^0.8.0",
-    "postman-request": "^2.88.1-postman.31",
-    "secp256k1": "^4.0.3"
+    "postman-request": "^2.88.1-postman.32",
+    "secp256k1": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^8.20.0"
