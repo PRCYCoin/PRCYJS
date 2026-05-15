@@ -20,7 +20,7 @@ function numToVarInt(num) {
   if (num < 253) return [num];
   else if (num < 65536) return [253].concat([...numToBytes(num, 2)]);
   else if (num < 4294967296) return [254].concat([...numToBytes(num, 4)]);
-  else return [253].concat([...numToBytes(num, 8)]);
+  else return [255].concat([...numToBytes(num, 8)]);
 }
 
 // TODO(shtylman) crypto sha uses this also
