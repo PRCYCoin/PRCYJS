@@ -449,7 +449,6 @@ function computeUTXODetails(view, spend, utxos) {
     var ki = computeKeyImage(pk);
     ki = ki.reverse();
     ki = Buffer.from(ki).toString("hex");
-    keyImageList = keyImageList + "-" + ki;
     var amount = decodeAmountAndMask(view, utxo.utxo, utxo.txtype);
     var obj = {
       utxo: utxo.utxo,
