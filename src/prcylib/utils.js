@@ -1,6 +1,7 @@
 const bcrypto = require("../crypto");
 const bs58 = require("bs58");
 const conv = require("binstring");
+const crypto = require('crypto-browserify');
 const secp256k1 = require("secp256k1");
 const Constants = require('./constants');
 const BigInteger = require('bigi');
@@ -163,13 +164,23 @@ function decodePrivacyAddress(address) {
   return { pubview: pubview, pubspend: pubspend, paymentID: paymentID };
 }
 
-const genRanHex = (size) =>
-  [...Array(size)]
-    .map(() => Math.floor(Math.random() * 16).toString(16))
-    .join("");
-
 function generateRandom32Bytes() {
-  return Buffer.from(genRanHex(64), "hex");
+  return crypto.randomBytes(32);
+}
+
+function secureRandomInt(max) {
+  if (!Number.isInteger(max) || max <= 0) {
+    throw new Error("secureRandomInt max must be a positive integer");
+  }
+
+  var limit = Math.floor(0x100000000 / max) * max;
+  var x;
+
+  do {
+    x = crypto.randomBytes(4).readUInt32BE(0);
+  } while (x >= limit);
+
+  return x % max;
 }
 
 // Create commitment using the amount and blind
@@ -242,9 +253,9 @@ function toPubkeyFormat(input) {
 }
 
 function selectRandomIndex(max, excludes) {
-  var selected = Math.floor(Math.random() * max);
+  var selected = secureRandomInt(max);
   while(excludes[selected]) {
-    selected = Math.floor(Math.random() * max);
+    selected = secureRandomInt(max);
   }
   return selected;
 }
@@ -471,8 +482,8 @@ module.exports = {
   decodePrivacyAddress: decodePrivacyAddress,
   generatePrivacyAddress: generatePrivacyAddress,
   generateIntegratedPrivacyAddress: generateIntegratedPrivacyAddress,
-  genRanHex: genRanHex,
   generateRandom32Bytes: generateRandom32Bytes,
+  secureRandomInt: secureRandomInt,
   createCommitment: createCommitment,
   numToVarInt: numToVarInt,
   bytesToWords: bytesToWords,

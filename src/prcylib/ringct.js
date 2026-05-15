@@ -272,7 +272,7 @@ function CreateRingCTTransaction(ins, outs, decoysDetails, privateKeys, ringSize
   }
 
   // note this ringSize is one bigger than ringSize in cpp
-  var secretIndex = Math.floor(Math.random() * ringSize);
+  var secretIndex = utils.secureRandomInt(ringSize);
   var rings = [];
   var commitmentRings = [];
 

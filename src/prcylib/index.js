@@ -99,7 +99,7 @@ function CreateFullTransaction(
   for (const ki of Object.keys(allUnspents)) {
     coinMap[ki] = allUnspents[ki].amount.amount;
   }
-  var ringSize = Math.floor(Math.random() * 5) + 28;
+  var ringSize = utils.secureRandomInt(5) + 28;
   
   if (enableDebug == true) {
     console.log("Creating Transaction");
