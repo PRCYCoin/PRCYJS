@@ -153,8 +153,11 @@ function CreateFullTransaction(
 
     GetDecoys(apiServer, 200, function (decoysDetails) {
       CreatePRCYPrivacyTransaction(apiServer, ins, outs, decoysDetails, privateKeys, ringSize, function (tx) {
-        if (!tx.vin) {
-          alert('Error:' + tx);
+        if (!tx || !tx.vin) {
+          cb({
+            success: false,
+            reason: tx && tx.reason ? tx.reason : "Failed to create transaction"
+          });
           return;
         }
         cb(tx, pendingAmount, outGoingKeyImages);
