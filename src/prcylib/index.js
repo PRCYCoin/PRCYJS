@@ -113,7 +113,7 @@ function CreateFullTransaction(
   var privateKeys = [];
 
   if (selection){
-    txFee = selection.fee;
+    var txFee = selection.fee;
     if (enableDebug == true) {
       console.log("Using txFee: " + txFee / constants.COIN);
     }
