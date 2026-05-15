@@ -69,8 +69,10 @@ const selectCoins = function (coinMap, sendAmount, ringSize, numOut) {
     });
     
     var sumOf50LargestLowers = vValue.reduce(function(total, currentValue, currentIndex) {
-        currentIndex + constants.MAX_TX_INPUTS >= vValue.length?total + currentValue : total;
-    }, 0)
+        return currentIndex + constants.MAX_TX_INPUTS >= vValue.length
+            ? total + currentValue.amount
+            : total;
+    }, 0);
     var maxFee = utils.ComputeFee(50, numOut, ringSize);
 
     if (sumOf50LargestLowers < sendAmount + maxFee) {
