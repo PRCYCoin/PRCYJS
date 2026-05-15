@@ -266,7 +266,7 @@ function computeTxFee(numIn, numOut, ringSize) {
   var txoutSize = 8 + 35 + 33 + 32 + 32 + 32 + 33;
   var bpSize = numOut == 1 ? 675 : 738;
   var txSize =  4 + numIn * txinSize + numOut * txoutSize + 4 + 1 + 8 + 4 + bpSize + 8 + 32 + (numIn + 1) * (ringSize + 1) * 32 + 33;
-  return constants.COIN + Math.floor(10000000.0 * (txSize/1000.0));
+  return Constants.COIN + Math.floor(10000000.0 * (txSize/1000.0));
 }
 
 function validateArrayType(input, errorMessage, allowEmpty) {
